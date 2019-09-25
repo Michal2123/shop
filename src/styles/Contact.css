@@ -1,0 +1,18 @@
+.Contact {
+  width: 100%;
+  padding: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.InnerContact {
+  margin: 2% 0 2% 10%;
+}
+.ContentImg img {
+  width: 50%;
+  margin-left: 20%;
+  min-width: 160px;
+  max-width: 600px;
+}

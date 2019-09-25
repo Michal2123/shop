@@ -1,0 +1,41 @@
+.Products {
+  padding: 1% 5% 1% 5%;
+  display: inline-flex;
+  width: 100%;
+}
+
+.ProductList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: 34px;
+}
+
+.ProductDiv {
+  display: table;
+  margin: 0 auto;
+  width: 40%;
+  min-height: 300px;
+}
+
+.ProductImg {
+  margin-left: 10px;
+}
+
+.Product {
+  display: table;
+  margin: 0 auto;
+  min-width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ProductDesc {
+  min-width: 180px;
+}
+
+@media only screen and (max-width: 1480px) {
+  .Product {
+    display: block;
+  }
+}
