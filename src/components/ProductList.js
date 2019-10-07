@@ -12,7 +12,7 @@ const ProductList = props => {
       <Product
         name={product.product}
         img={product.image}
-        price={props.id === "cart" ? product.sumPrice : product.price}
+        price={product.price}
         count={product.count}
         id={product.id}
         pageId={props.id}

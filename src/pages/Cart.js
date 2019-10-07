@@ -107,7 +107,10 @@ class Cart extends Component {
                 buttonText="Delete form cart"
                 cartButtonPlus={this.props.cartButtonPlus}
               />
-              <form onSubmit={this.handleSubmmitt}>
+              <form
+                onSubmit={this.handleSubmmitt}
+                style={{ minWidth: "200px" }}
+              >
                 <Input
                   errorName={this.state.errorName}
                   errorMessage="Please fill this field."
@@ -156,7 +159,10 @@ class Cart extends Component {
                 />
 
                 <br />
-                <h3>Payment summary: {sumPrice} PLN</h3>
+                <h3>
+                  Payment summary: {sumPrice}{" "}
+                  <span style={{ fontSize: "20px" }}>PLN</span>
+                </h3>
                 <button>Send products</button>
               </form>
             </div>
