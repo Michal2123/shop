@@ -6,7 +6,7 @@ const HomePage = () => {
     <div className="HomePage">
       <h1>Welcome!</h1>
       <br />
-      This is a simple React application which I made to show you my skills.
+      This is the simple React application I made to show you my skills.
     </div>
   );
 };
