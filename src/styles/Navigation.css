@@ -21,6 +21,7 @@
   text-align: left;
   font-size: 24px;
   margin-left: 1%;
+  cursor: default;
 }
 
 .navbar-light .navbar-toggler-icon {
