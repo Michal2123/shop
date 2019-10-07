@@ -32,14 +32,14 @@
 }
 
 .NavigationLink {
-  width: 80%;
+  width: 90%;
   margin-right: 15%;
   text-decoration: none;
   text-align: right;
 }
 
 .NavigationLink a {
-  margin: 0 2% 0 2%;
+  margin: 0 2% 0 0;
   color: white;
   font-size: 32px;
 }

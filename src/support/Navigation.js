@@ -5,9 +5,9 @@ import { Navbar, Nav } from "react-bootstrap";
 
 const Navigation = props => {
   let cartElems = 0;
-  for (let index = 0; index < props.cart.length; index++) {
-    cartElems += props.cart[index].count;
-  }
+  props.cart.forEach(element => {
+    cartElems += element.count;
+  });
   return (
     <Navbar expand="lg" className="Navigation">
       <Navbar.Brand className="Brand" style={{ color: "white" }}>

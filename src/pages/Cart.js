@@ -32,8 +32,8 @@ class Cart extends Component {
     e.preventDefault();
     const { userName, userEmail, street, zipCode } = this.state;
 
-    if (this.state.userName.length === 0) {
-      this.setState(prevState => ({ errorName: !prevState.errorName }));
+    if (userName.length === 0) {
+      this.setState({ errorName: true });
       this.error.errorName = true;
     } else {
       this.setState({ errorName: false });
@@ -90,9 +90,9 @@ class Cart extends Component {
   render(props) {
     let sumPrice = 0;
     if (this.props.cart.length > 0) {
-      for (let index = 0; index < this.props.cart.length; index++) {
-        sumPrice += this.props.cart[index].sumPrice;
-      }
+      this.props.cart.forEach(element => {
+        sumPrice += element.sumPrice;
+      });
     }
     return (
       <div className="Cart">

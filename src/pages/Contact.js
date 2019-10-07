@@ -20,7 +20,7 @@ const Contact = () => {
       </div>
 
       <div className="ContentImg">
-        <img src={image} />
+        <img src={image} alt="contactImg" />
       </div>
     </div>
   );

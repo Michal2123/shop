@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Content from "./support/Content";
 
 import "./styles/App.css";
-import Products from "./pages/Products";
 
 class App extends Component {
   state = {
@@ -82,7 +81,8 @@ class App extends Component {
         this.setState({
           products: data
         })
-      );
+      )
+      .catch(() => alert("Turn off your adblock to see the products."));
   };
 
   render() {
