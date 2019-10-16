@@ -15,7 +15,7 @@ const Content = props => {
         <div className="Header">
           <Navigation cart={props.cart} />
         </div>
-        <section className="Content">
+        <div className="Content">
           <div className="InnerContent">
             <Route exact path="/" component={HomePage} />
             <Route path="/contact" component={Contact} />
@@ -38,11 +38,12 @@ const Content = props => {
                   deleteFromCart={props.deleteFromCart}
                   cartButtonPlus={props.addToCart}
                   resetCart={props.resetCart}
+                  products={props.products}
                 />
               )}
             />
           </div>
-        </section>
+        </div>
       </Router>
       <div className="Footer">
         <Footer />

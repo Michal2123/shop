@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Content from "./support/Content";
+import Content from "./shred/Content";
 
 import "./styles/App.css";
 
@@ -15,7 +15,8 @@ class App extends Component {
       },
       userEmail: ""
     },
-    cart: []
+    cart: [],
+    prodIsLoad: true
   };
 
   createUser = (user, isUserLogIn) => {
@@ -79,10 +80,15 @@ class App extends Component {
       .then(response => response.json())
       .then(data =>
         this.setState({
-          products: data
+          products: data,
+          prodIsLoad: true
         })
       )
-      .catch(() => alert("Turn off your adblock to see the products."));
+      .catch(() =>
+        this.setState({
+          prodIsLoad: false
+        })
+      );
   };
 
   render() {
@@ -96,6 +102,7 @@ class App extends Component {
           addToCart={this.addToCart}
           deleteFromCart={this.deleteFromCart}
           resetCart={this.resetCart}
+          prodIsLoad={this.state.prodIsLoad}
         />
       </div>
     );

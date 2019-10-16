@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Products.css";
 import ProductList from "../components/ProductList";
+import AdBlockError from "../error/adBlockError";
 
 const Products = props => {
   return (
@@ -12,7 +13,9 @@ const Products = props => {
           id="products"
           buttonText="Add to cart"
         />
-      ) : null}
+      ) : (
+        <AdBlockError />
+      )}
     </div>
   );
 };

@@ -98,7 +98,8 @@ class Cart extends Component {
       <div className="Cart">
         <div>
           {" "}
-          {this.props.cart.length > 0 ? (
+          {this.props.cart.length > 0 &&
+          this.props.products.Products !== undefined ? (
             <div className="InnerCart">
               <ProductList
                 id="cart"
@@ -161,7 +162,7 @@ class Cart extends Component {
                 <br />
                 <h3>
                   Payment summary: {sumPrice}{" "}
-                  <span style={{ fontSize: "20px" }}>PLN</span>
+                  <span style={{ fontSize: "20px", color: "white" }}>PLN</span>
                 </h3>
                 <button>Send products</button>
               </form>
