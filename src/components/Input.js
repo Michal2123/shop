@@ -5,9 +5,9 @@ const Input = props => {
     <label>
       {props.label}
 
-      {props.isAllValid ? null : (
+      {!props.isValid ? null : (
         <>
-          <span className="erronName">{props.isValid}</span>
+          <span className="erronName">{props.errorMessage}</span>
         </>
       )}
       <input

@@ -10,8 +10,7 @@ class Cart extends Component {
       userName: "",
       userEmail: "",
       street: "",
-      zipCode: "",
-      isAllValid: true
+      zipCode: ""
     };
   }
 
@@ -30,7 +29,6 @@ class Cart extends Component {
       (this.state.street.length === 0 || !this.state.street.trim()) &&
       (this.state.zipCode.length === 0 || !this.state.zipCode.trim())
     ) {
-      this.setState({ isAllValid: false });
       return;
     }
     const user = {
@@ -80,10 +78,8 @@ class Cart extends Component {
                   isValid={
                     this.state.userName.length === 0 ||
                     !this.state.userName.trim()
-                      ? "Please fill this field."
-                      : null
                   }
-                  isAllValid={this.state.isAllValid}
+                  errorMessage={"Please fill this field."}
                   onChange={this.handleChange}
                   value={this.state.userName}
                   type="text"
@@ -93,12 +89,8 @@ class Cart extends Component {
                 />
 
                 <Input
-                  isValid={
-                    !this.state.userEmail.includes("@")
-                      ? `Please fill this field / missing char "@".`
-                      : null
-                  }
-                  isAllValid={this.state.isAllValid}
+                  isValid={!this.state.userEmail.includes("@")}
+                  errorMessage={`Please fill this field / missing char "@".`}
                   onChange={this.handleChange}
                   value={this.state.userEmail}
                   type="text"
@@ -110,10 +102,8 @@ class Cart extends Component {
                 <Input
                   isValid={
                     this.state.street.length === 0 || !this.state.street.trim()
-                      ? "Please fill this field."
-                      : null
                   }
-                  isAllValid={this.state.isAllValid}
+                  errorMessage={"Please fill this field."}
                   onChange={this.handleChange}
                   value={this.state.street}
                   type="text"
@@ -126,10 +116,8 @@ class Cart extends Component {
                   isValid={
                     this.state.zipCode.length === 0 ||
                     !this.state.zipCode.trim()
-                      ? "Please fill this field."
-                      : null
                   }
-                  isAllValid={this.state.isAllValid}
+                  errorMessage={"Please fill this field."}
                   onChange={this.handleChange}
                   value={this.state.zipCode}
                   type="number"
