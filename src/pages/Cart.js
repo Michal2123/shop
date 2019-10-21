@@ -51,7 +51,7 @@ class Cart extends Component {
     }
   };
 
-  render(props) {
+  render() {
     let sumPrice = 0;
     if (this.props.cart.length > 0) {
       this.props.cart.forEach(element => {
