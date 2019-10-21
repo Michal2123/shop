@@ -2,20 +2,23 @@ import React, { Component } from "react";
 import Content from "./shred/Content";
 
 class App extends Component {
-  state = {
-    products: [],
-    isUserLogIn: false,
-    user: {
-      userName: "",
-      address: {
-        street: "",
-        zipCode: ""
+  constructor() {
+    super();
+    this.state = {
+      products: [],
+      isUserLogIn: false,
+      user: {
+        userName: "",
+        address: {
+          street: "",
+          zipCode: ""
+        },
+        userEmail: ""
       },
-      userEmail: ""
-    },
-    cart: [],
-    prodIsLoad: true
-  };
+      cart: [],
+      prodIsLoad: true
+    };
+  }
 
   createUser = (user, isUserLogIn) => {
     this.setState({
