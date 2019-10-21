@@ -4,21 +4,13 @@
 }
 
 .Navigation {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
   min-height: 60px;
   font-family: "ZILAP Studio";
 }
 
-.Navigation div {
-  display: inline-block;
-}
-
 .Brand {
   width: 20%;
-  text-align: left;
+  justify-content: flex-start;
   font-size: 24px;
   margin-left: 1%;
   cursor: default;
@@ -36,7 +28,7 @@
   width: 90%;
   margin-right: 15%;
   text-decoration: none;
-  text-align: right;
+  justify-content: flex-end;
 }
 
 .NavigationLink a {
@@ -57,10 +49,15 @@
 .collapsed .Navigation {
   min-height: 100px;
 }
-
-@media only screen and (max-width: 630px) {
+.navbar-nav {
+  align-items: center;
+}
+@media only screen and (max-width: 991px) {
   .Navigation div {
     display: flex;
-    text-align: left;
+    justify-content: flex-start;
+  }
+  .navbar-nav {
+    align-items: flex-start;
   }
 }
