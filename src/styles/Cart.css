@@ -1,6 +1,10 @@
 .InnerCart {
   display: flex;
 }
+form label {
+  display: flex;
+  flex-direction: column;
+}
 
 .InnerCart span {
   color: rgb(255, 72, 72);

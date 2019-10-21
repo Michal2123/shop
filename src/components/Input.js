@@ -4,11 +4,10 @@ const Input = props => {
   return (
     <label>
       {props.label}
-      <br />
-      {props.errorName ? (
+
+      {props.isValid ? (
         <>
-          <span className="erronName">{props.errorMessage}</span>
-          <br />
+          <span className="erronName">{props.isValid}</span>
         </>
       ) : null}
       <input

@@ -10,20 +10,9 @@ class Cart extends Component {
       userName: "",
       userEmail: "",
       street: "",
-      zipCode: "",
-      errorName: false,
-      errorMail: false,
-      errorStreet: false,
-      errorZipCode: false
+      zipCode: ""
     };
   }
-
-  error = {
-    errorName: false,
-    errorMail: false,
-    errorStreet: false,
-    errorZipCode: false
-  };
 
   handleChange = e => {
     this.setState({
@@ -33,43 +22,15 @@ class Cart extends Component {
 
   handleSubmmitt = e => {
     e.preventDefault();
-    const { userName, userEmail, street, zipCode } = this.state;
-
-    if (userName.length === 0) {
-      this.setState({ errorName: true });
-      this.error.errorName = true;
-    } else {
-      this.setState({ errorName: false });
-      this.error.errorName = false;
-    }
-    if (userName.length === 0 || userEmail.indexOf("@") === -1) {
-      this.setState({ errorMail: true });
-      this.error.errorMail = true;
-    } else {
-      this.setState({ errorMail: false });
-      this.error.errorMail = false;
-    }
-    if (street.length === 0) {
-      this.setState({ errorStreet: true });
-      this.error.errorStreet = true;
-    } else {
-      this.setState({ errorStreet: false });
-      this.error.errorStreet = false;
-    }
-    if (zipCode.length === 0) {
-      this.setState({ errorZipCode: true });
-      this.error.errorZipCode = true;
-    } else {
-      this.setState({ errorZipCode: false });
-      this.error.errorZipCode = false;
-    }
 
     if (
-      !this.error.errorName &&
-      !this.error.errorMail &&
-      !this.error.errorStreet &&
-      !this.error.errorZipCode
+      (this.state.userName.length === 0 || !this.state.userName.trim()) &&
+      !this.state.userEmail.includes("@") &&
+      (this.state.street.length === 0 || !this.state.street.trim()) &&
+      (this.state.zipCode.length === 0 || !this.state.zipCode.trim())
     ) {
+      return;
+    } else {
       const user = {
         userName: this.state.userName,
         userEmail: this.state.userEmail,
@@ -115,8 +76,12 @@ class Cart extends Component {
                 style={{ minWidth: "200px" }}
               >
                 <Input
-                  errorName={this.state.errorName}
-                  errorMessage="Please fill this field."
+                  isValid={
+                    this.state.userName.length === 0 ||
+                    !this.state.userName.trim()
+                      ? "Please fill this field."
+                      : null
+                  }
                   onChange={this.handleChange}
                   value={this.state.userName}
                   type="text"
@@ -126,8 +91,11 @@ class Cart extends Component {
                 />
 
                 <Input
-                  errorName={this.state.errorMail}
-                  errorMessage={`Please fill this field / missing char "@".`}
+                  isValid={
+                    !this.state.userEmail.includes("@")
+                      ? `Please fill this field / missing char "@".`
+                      : null
+                  }
                   onChange={this.handleChange}
                   value={this.state.userEmail}
                   type="text"
@@ -137,7 +105,11 @@ class Cart extends Component {
                 />
 
                 <Input
-                  errorName={this.state.errorStreet}
+                  isValid={
+                    this.state.street.length === 0 || !this.state.street.trim()
+                      ? "Please fill this field."
+                      : null
+                  }
                   errorMessage="Please fill this field."
                   onChange={this.handleChange}
                   value={this.state.street}
@@ -148,8 +120,12 @@ class Cart extends Component {
                 />
 
                 <Input
-                  errorName={this.state.errorZipCode}
-                  errorMessage="Please fill this field."
+                  isValid={
+                    this.state.zipCode.length === 0 ||
+                    !this.state.zipCode.trim()
+                      ? "Please fill this field."
+                      : null
+                  }
                   onChange={this.handleChange}
                   value={this.state.zipCode}
                   type="number"
