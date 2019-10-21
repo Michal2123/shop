@@ -5,11 +5,11 @@ const Input = props => {
     <label>
       {props.label}
 
-      {props.isValid ? (
+      {props.isAllValid ? null : (
         <>
           <span className="erronName">{props.isValid}</span>
         </>
-      ) : null}
+      )}
       <input
         onChange={props.onChange}
         value={props.value}

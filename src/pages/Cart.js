@@ -10,7 +10,8 @@ class Cart extends Component {
       userName: "",
       userEmail: "",
       street: "",
-      zipCode: ""
+      zipCode: "",
+      isAllValid: true
     };
   }
 
@@ -29,26 +30,26 @@ class Cart extends Component {
       (this.state.street.length === 0 || !this.state.street.trim()) &&
       (this.state.zipCode.length === 0 || !this.state.zipCode.trim())
     ) {
+      this.setState({ isAllValid: false });
       return;
-    } else {
-      const user = {
-        userName: this.state.userName,
-        userEmail: this.state.userEmail,
-        adress: {
-          street: this.state.street,
-          zipCode: this.state.zipCode
-        }
-      };
-      this.props.createUser(user, true);
-      alert("Products has been send.");
-      this.setState({
-        userName: "",
-        userEmail: "",
-        street: "",
-        zipCode: ""
-      });
-      this.props.resetCart();
     }
+    const user = {
+      userName: this.state.userName,
+      userEmail: this.state.userEmail,
+      adress: {
+        street: this.state.street,
+        zipCode: this.state.zipCode
+      }
+    };
+    this.props.createUser(user, true);
+    alert("Products has been send.");
+    this.setState({
+      userName: "",
+      userEmail: "",
+      street: "",
+      zipCode: ""
+    });
+    this.props.resetCart();
   };
 
   render() {
@@ -82,6 +83,7 @@ class Cart extends Component {
                       ? "Please fill this field."
                       : null
                   }
+                  isAllValid={this.state.isAllValid}
                   onChange={this.handleChange}
                   value={this.state.userName}
                   type="text"
@@ -96,6 +98,7 @@ class Cart extends Component {
                       ? `Please fill this field / missing char "@".`
                       : null
                   }
+                  isAllValid={this.state.isAllValid}
                   onChange={this.handleChange}
                   value={this.state.userEmail}
                   type="text"
@@ -110,7 +113,7 @@ class Cart extends Component {
                       ? "Please fill this field."
                       : null
                   }
-                  errorMessage="Please fill this field."
+                  isAllValid={this.state.isAllValid}
                   onChange={this.handleChange}
                   value={this.state.street}
                   type="text"
@@ -126,6 +129,7 @@ class Cart extends Component {
                       ? "Please fill this field."
                       : null
                   }
+                  isAllValid={this.state.isAllValid}
                   onChange={this.handleChange}
                   value={this.state.zipCode}
                   type="number"
