@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Nirmalagraphics";
-  src: url("../fonts/Marion-OVZjo.ttf");
+  src: url(/fonts/Marion-OVZjo.ttf);
 }
 
 html {
@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background-image: url("../images/Blue_bg.jpg");
+  background-image: url(/images/Blue_bg.jpg);
   padding: 0px;
   margin: 0px;
   color: white;
