@@ -10,7 +10,8 @@ class Cart extends Component {
       userName: "",
       userEmail: "",
       street: "",
-      zipCode: ""
+      zipCode: "",
+      formSubmitted: false
     };
   }
 
@@ -29,6 +30,7 @@ class Cart extends Component {
       (this.state.street.length === 0 || !this.state.street.trim()) &&
       (this.state.zipCode.length === 0 || !this.state.zipCode.trim())
     ) {
+      this.setState({ formSubmitted: true });
       return;
     }
     const user = {
@@ -76,8 +78,9 @@ class Cart extends Component {
               >
                 <Input
                   isValid={
-                    this.state.userName.length === 0 ||
-                    !this.state.userName.trim()
+                    (this.state.userName.length === 0 ||
+                      !this.state.userName.trim()) &&
+                    this.state.formSubmitted
                   }
                   errorMessage={"Please fill this field."}
                   onChange={this.handleChange}
@@ -89,7 +92,10 @@ class Cart extends Component {
                 />
 
                 <Input
-                  isValid={!this.state.userEmail.includes("@")}
+                  isValid={
+                    !this.state.userEmail.includes("@") &&
+                    this.state.formSubmitted
+                  }
                   errorMessage={`Please fill this field / missing char "@".`}
                   onChange={this.handleChange}
                   value={this.state.userEmail}
@@ -101,7 +107,9 @@ class Cart extends Component {
 
                 <Input
                   isValid={
-                    this.state.street.length === 0 || !this.state.street.trim()
+                    (this.state.street.length === 0 ||
+                      !this.state.street.trim()) &&
+                    this.state.formSubmitted
                   }
                   errorMessage={"Please fill this field."}
                   onChange={this.handleChange}
@@ -114,8 +122,9 @@ class Cart extends Component {
 
                 <Input
                   isValid={
-                    this.state.zipCode.length === 0 ||
-                    !this.state.zipCode.trim()
+                    (this.state.zipCode.length === 0 ||
+                      !this.state.zipCode.trim()) &&
+                    this.state.formSubmitted
                   }
                   errorMessage={"Please fill this field."}
                   onChange={this.handleChange}
