@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Content from "./shred/Content";
 
-import "./styles/App.css";
-
 class App extends Component {
   state = {
     products: [],

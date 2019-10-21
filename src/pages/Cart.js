@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../styles/Cart.css";
+
 import ProductList from "../components/ProductList";
 import Input from "../components/Input";
 
