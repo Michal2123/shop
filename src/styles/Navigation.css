@@ -13,7 +13,7 @@
 }
 
 .Navigation div {
-  display: inline;
+  display: inline-block;
 }
 
 .Brand {

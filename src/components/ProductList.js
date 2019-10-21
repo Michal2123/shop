@@ -1,7 +1,8 @@
 import React from "react";
 import Product from "./Product";
-let list = [];
+
 const ProductList = props => {
+  let list = [];
   if (props.id === "products") {
     list = props.products.Products;
   } else if (props.id === "cart") {

@@ -6,7 +6,7 @@ import AdBlockError from "../error/adBlockError";
 const Products = props => {
   return (
     <div className="Products">
-      {props.products.Products !== undefined ? (
+      {props.products.Products ? (
         <ProductList
           products={props.products}
           buttonClick={props.addToCart}

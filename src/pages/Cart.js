@@ -4,16 +4,19 @@ import ProductList from "../components/ProductList";
 import Input from "../components/Input";
 
 class Cart extends Component {
-  state = {
-    userName: "",
-    userEmail: "",
-    street: "",
-    zipCode: "",
-    errorName: false,
-    errorMail: false,
-    errorStreet: false,
-    errorZipCode: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      userName: "",
+      userEmail: "",
+      street: "",
+      zipCode: "",
+      errorName: false,
+      errorMail: false,
+      errorStreet: false,
+      errorZipCode: false
+    };
+  }
 
   error = {
     errorName: false,
@@ -98,8 +101,7 @@ class Cart extends Component {
       <div className="Cart">
         <div>
           {" "}
-          {this.props.cart.length > 0 &&
-          this.props.products.Products !== undefined ? (
+          {this.props.cart.length > 0 && this.props.products.Products ? (
             <div className="InnerCart">
               <ProductList
                 id="cart"
@@ -123,7 +125,6 @@ class Cart extends Component {
                   label="User name:"
                 />
 
-                <br />
                 <Input
                   errorName={this.state.errorMail}
                   errorMessage={`Please fill this field / missing char "@".`}
@@ -135,7 +136,6 @@ class Cart extends Component {
                   label="Email:"
                 />
 
-                <br />
                 <Input
                   errorName={this.state.errorStreet}
                   errorMessage="Please fill this field."
@@ -147,7 +147,6 @@ class Cart extends Component {
                   label="Street:"
                 />
 
-                <br />
                 <Input
                   errorName={this.state.errorZipCode}
                   errorMessage="Please fill this field."
@@ -159,7 +158,6 @@ class Cart extends Component {
                   label="Zip code:"
                 />
 
-                <br />
                 <h3>
                   Payment summary: {sumPrice}{" "}
                   <span style={{ fontSize: "20px", color: "white" }}>PLN</span>

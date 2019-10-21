@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/Contact.css";
-import image from "../images/kościotrup.png";
 
 const Contact = () => {
   return (
@@ -20,7 +19,10 @@ const Contact = () => {
       </div>
 
       <div className="ContentImg">
-        <img src={image} alt="contactImg" />
+        <img
+          src={`${process.env.PUBLIC_URL}/images/kościotrup.png`}
+          alt="contactImg"
+        />
       </div>
     </div>
   );
